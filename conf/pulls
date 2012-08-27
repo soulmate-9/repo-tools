@@ -1,5 +1,5 @@
-Name: tau2lucid
+Name: tau2precise
 From: tau
 Components: main
 Architectures: i386 amd64 source
-FilterList: install tau2lucid.list
+FilterList: install tau2precise.list

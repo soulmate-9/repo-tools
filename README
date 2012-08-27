@@ -39,6 +39,7 @@ To easy allow local uploads, a quick an dirty trick is to create a system group 
 	chmod 775 /srv/repo/aurex/incoming
 
 Generate the reprepro configuration files:
+(see conf directory in git ...)
 
 conf/distributions
 ------------------
@@ -121,7 +122,58 @@ update
 reprepro -VV --noskipold --export=force update
 
 
+cowbuilder
+==========
+create chroots:
+	sudo cowbuilder --create --distribution precise --components "main universe" --basepath /var/cache/pbuilder/precise-amd64.cow
+	sudo cowbuilder --create --distribution precise --components "main universe" --architecture i386 --basepath /var/cache/pbuilder/precise-i386.cow
 
+update:
+sudo cowbuilder --update --basepath /var/cache/pbuilder/precise-i386.cow
+sudo cowbuilder --update --basepath /var/cache/pbuilder/precise-amd64.cow
+
+compile:
+
+sudo DIST=lucid ARCH=i386 cowbuilder --debbuildopts "-b" --build ../hello_2.4-3.dsc --basepath /var/cache/pbuilder/lucid-i386.cow
+
+NOTE: --debbuildopts:
+	"-b" binary only
+	"-S" source only (uses 'source' as arch, so geerates generates: $p_$v_source.changes file)
+results in:
+/var/cache/pbuilder/result/
+
+/etc/pbuilderrc
+---------------
+# this is your configuration file for pbuilder.
+# the file in /usr/share/pbuilder/pbuilderrc is the default template.
+# /etc/pbuilderrc is the one meant for overwriting defaults in
+# the default template
+#
+# read pbuilderrc.5 document for notes on specific options.
+MIRRORSITE=ftp://mirror.ovh.net/mirrors/ftp.ubuntu.com/ubuntu/
+
+
+
+git-buildpackage
+================
+Enable use of pristine-tar and set ../build-area as export dir in
+
+/etc/git-buildpackage/gbp.conf
+------------------------------
+...
+[DEFAULT]
+...
+# use pristine-tar:
+pristine-tar = True
+...
+
+[git-buildpackage]
+...
+export-dir = ../build-area/
+...
+
+
+UNUSED ... 
 
 rebuildd
 ========
@@ -170,30 +222,6 @@ logs_dir = /var/log/rebuildd/build_logs
 mail_failed = 1
 mail_successful = 0
 file = /var/log/rebuildd/rebuildd.log
-
-
-
-
-cowbuilder
-==========
-create chroots:
-	sudo cowbuilder --create --distribution lucid --components "main universe" --basepath /var/cache/pbuilder/lucid-amd64.cow
-	sudo cowbuilder --create --distribution lucid --components "main universe" --architecture i386 --basepath /var/cache/pbuilder/lucid-i386.cow
-
-update:
-sudo cowbuilder --update --basepath /var/cache/pbuilder/lucid-i386.cow
-sudo cowbuilder --update --basepath /var/cache/pbuilder/lucid-amd64.cow
-
-compile:
-
-sudo DIST=lucid ARCH=i386 cowbuilder --debbuildopts "-b" --build ../hello_2.4-3.dsc --basepath /var/cache/pbuilder/lucid-i386.cow
-
-NOTE: --debbuildopts:
-	"-b" binary only
-	"-S" source only (uses 'source' as arch, so geerates generates: $p_$v_source.changes file)
-results in:
-/var/cache/pbuilder/result/
-
 
 
 configuration:

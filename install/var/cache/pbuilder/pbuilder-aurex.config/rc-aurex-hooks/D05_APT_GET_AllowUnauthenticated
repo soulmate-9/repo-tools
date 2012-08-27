@@ -1,0 +1,3 @@
+#!/bin/sh
+echo "Allow installation from unauthenticated repos"
+echo 'APT::Get::AllowUnauthenticated "true";' > /etc/apt/apt.conf.d/00allowunauthenticated

@@ -1,25 +1,24 @@
-Origin: aurex
-Label: aurex
-Suite: lucid
-Codename: lucid
+Origin: aureX
+Label: aureX
+Suite: precise
+Codename: precise
 Architectures: i386 amd64 source
 Components: main contrib
-Description: aurex stable repository for Ubuntu 10.04 lucid
-Version: 10.04
-SignWith: C2A2C214
-Pull: tau2lucid
-Update: - lucid-proposed filter_http:__archive.canonical.com_ubuntu_:lucid-amd64 filter_http:__archive.canonical.com_ubuntu_:lucid-i386 filter_http:__archive.zentyal.com_zentyal_:2.2-amd64 filter_http:__archive.zentyal.com_zentyal_:2.2-i386 filter_http:__deb.opera.com_opera_:stable-amd64 filter_http:__deb.opera.com_opera_:stable-i386 filter_http:__download.virtualbox.org_virtualbox_debian_:lucid-amd64 filter_http:__download.virtualbox.org_virtualbox_debian_:lucid-i386 filter_http:__ppa.launchpad.net_bisigi_ppa_ubuntu_:lucid-amd64 filter_http:__ppa.launchpad.net_bisigi_ppa_ubuntu_:lucid-i386 filter_http:__ppa.launchpad.net_libreoffice_ppa_ubuntu_:lucid-amd64 filter_http:__ppa.launchpad.net_libreoffice_ppa_ubuntu_:lucid-i386 filter_http:__ppa.launchpad.net_mozillateam_firefox-stable_ubuntu_:lucid-amd64 filter_http:__ppa.launchpad.net_mozillateam_firefox-stable_ubuntu_:lucid-i386 filter_http:__ppa.launchpad.net_tiheum_equinox_ubuntu_:lucid-amd64 filter_http:__ppa.launchpad.net_tiheum_equinox_ubuntu_:lucid-i386 filter_http:__ppa.launchpad.net_ubuntu-wine_ppa_ubuntu_:lucid-amd64 filter_http:__ppa.launchpad.net_ubuntu-wine_ppa_ubuntu_:lucid-i386 filter_http:__ppa.launchpad.net_zentyal_2.2_ubuntu_:lucid-amd64 filter_http:__ppa.launchpad.net_zentyal_2.2_ubuntu_:lucid-i386
+Description: AureX stable repository for Ubuntu 12.04 precise
+Version: 12.04
+SignWith: 8C0CD6F2
+Update: - precise-proposed filter_http:__archive.canonical.com_ubuntu_:precise-amd64 filter_http:__archive.canonical.com_ubuntu_:precise-i386 filter_http:__archive.zentyal.org_zentyal_:2.3-amd64 filter_http:__archive.zentyal.org_zentyal_:2.3-i386 filter_http:__deb.opera.com_opera_:stable-amd64 filter_http:__deb.opera.com_opera_:stable-i386 filter_http:__download.virtualbox.org_virtualbox_debian_:precise-amd64 filter_http:__download.virtualbox.org_virtualbox_debian_:precise-i386 filter_http:__ppa.launchpad.net_nilarimogard_webupd8_ubuntu_:precise-amd64 filter_http:__ppa.launchpad.net_nilarimogard_webupd8_ubuntu_:precise-i386 filter_http:__ppa.launchpad.net_ravefinity-project_ppa_ubuntu_:precise-amd64 filter_http:__ppa.launchpad.net_ravefinity-project_ppa_ubuntu_:precise-i386 filter_http:__ppa.launchpad.net_tiheum_equinox_ubuntu_:precise-amd64 filter_http:__ppa.launchpad.net_tiheum_equinox_ubuntu_:precise-i386 filter_http:__ppa.launchpad.net_webupd8team_gthumb_ubuntu_:precise-amd64 filter_http:__ppa.launchpad.net_webupd8team_gthumb_ubuntu_:precise-i386 filter_http:__ppa.launchpad.net_webupd8team_java_ubuntu_:precise-amd64 filter_http:__ppa.launchpad.net_webupd8team_java_ubuntu_:precise-i386 filter_http:__ppa.launchpad.net_xubuntu-dev_xfce-4.10_ubuntu_:precise-amd64 filter_http:__ppa.launchpad.net_xubuntu-dev_xfce-4.10_ubuntu_:precise-i386 filter_http:__ppa.launchpad.net_zentyal_2.3_ubuntu_:precise-amd64 filter_http:__ppa.launchpad.net_zentyal_2.3_ubuntu_:precise-i386
 
 Origin: aurex
 Label: aurex
-Suite: lucid-proposed
-Codename: lucid-proposed
+Suite: precise-proposed
+Codename: precise-proposed
 Architectures: i386 amd64 source
 Components: main contrib
-Description: aurex proposed repository for Ubuntu 10.04 lucid
-Version: 10.04
-SignWith: C2A2C214
-Pull: tau2lucid
+Description: aurex proposed repository for Ubuntu 12.04 lucid
+Version: 12.04
+SignWith: 8C0CD6F2
+Pull: tau2precise
 
 Origin: aurex
 Label: aurex
@@ -29,6 +28,6 @@ Architectures: i386 amd64 source
 Components: main contrib
 UDebComponents: main contrib
 Description: Testing aurex (tau) repository. Use at your own risk
-Version: 10.04
-SignWith: C2A2C214
+Version: 12.04
+SignWith: 8C0CD6F2
 

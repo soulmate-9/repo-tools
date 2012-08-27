@@ -7,13 +7,13 @@ REG_EXP="^\(add\|update\)[[:blank:]]\+'\([^']\+\)'[^']\+'\([^']\+\)'.*$"
 TIME_STAMP="$(date "+%Y%m%d-%H%M%S")"
 echo "Package list"
 echo "====================================================="
-reprepro --noskipold dumpupdate lucid  2>/dev/null |sed -ne "/$REG_EXP/p" |sort -u
+reprepro --noskipold dumpupdate precise  2>/dev/null |sed -ne "/$REG_EXP/p" |sort -u
 cat <<EOF
 =====================================================
 
 Run command:
 
-reprepro -VV --noskipold --export=force update lucid
+reprepro -VV --noskipold --export=force update precise
 
 to update 'aurex' from 'the rest of the world'.
 EOF

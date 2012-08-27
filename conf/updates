@@ -1,37 +1,36 @@
-Name: lucid-proposed
-#Method: http://localhost/aurex/
+Name: precise-proposed
 Method: file:///srv/repo/aurex/
-Suite: lucid-proposed
+Suite: precise-proposed
 Components: main
 Architectures: amd64 i386 source
 
-Name: filter_http:__archive.canonical.com_ubuntu_:lucid-amd64
+Name: filter_http:__archive.canonical.com_ubuntu_:precise-amd64
 method: http://archive.canonical.com/ubuntu/
-Suite: lucid
+Suite: precise
 Components: partner>contrib
 Architectures: amd64
-FilterList: purge filter_http:__archive.canonical.com_ubuntu_:lucid-amd64.list
+FilterList: purge filter_http:__archive.canonical.com_ubuntu_:precise-amd64.list
 
-Name: filter_http:__archive.canonical.com_ubuntu_:lucid-i386
+Name: filter_http:__archive.canonical.com_ubuntu_:precise-i386
 method: http://archive.canonical.com/ubuntu/
-Suite: lucid
+Suite: precise
 Components: partner>contrib
 Architectures: i386
-FilterList: purge filter_http:__archive.canonical.com_ubuntu_:lucid-i386.list
+FilterList: purge filter_http:__archive.canonical.com_ubuntu_:precise-i386.list
 
-Name: filter_http:__archive.zentyal.com_zentyal_:2.2-amd64
-Method: http://archive.zentyal.com/zentyal/
-Suite: 2.2
-Components:  extra>contrib
+Name: filter_http:__archive.zentyal.org_zentyal_:2.3-amd64
+Method: http://archive.zentyal.org/zentyal/
+Suite: 2.3
+Components:  main>contrib extra>contrib
 Architectures: amd64
-FilterList: purge filter_http:__archive.zentyal.com_zentyal_:2.2-amd64.list
+FilterList: purge filter_http:__archive.zentyal.org_zentyal_:2.3-amd64.list
 
-Name: filter_http:__archive.zentyal.com_zentyal_:2.2-i386
-Method: http://archive.zentyal.com/zentyal/
-Suite: 2.2
-Components:  extra>contrib
+Name: filter_http:__archive.zentyal.org_zentyal_:2.3-i386
+Method: http://archive.zentyal.org/zentyal/
+Suite: 2.3
+Components:  main>contrib extra>contrib
 Architectures: i386
-FilterList: purge filter_http:__archive.zentyal.com_zentyal_:2.2-i386.list
+FilterList: purge filter_http:__archive.zentyal.org_zentyal_:2.3-i386.list
 
 Name: filter_http:__deb.opera.com_opera_:stable-amd64
 Method: http://deb.opera.com/opera/
@@ -47,101 +46,115 @@ Components:  non-free>contrib
 Architectures: i386
 FilterList: purge filter_http:__deb.opera.com_opera_:stable-i386.list
 
-Name: filter_http:__download.virtualbox.org_virtualbox_debian_:lucid-amd64
+Name: filter_http:__download.virtualbox.org_virtualbox_debian_:precise-amd64
 Method: http://download.virtualbox.org/virtualbox/debian/
-Suite: lucid
+Suite: precise
 Components:  contrib>contrib
 Architectures: amd64
-FilterList: purge filter_http:__download.virtualbox.org_virtualbox_debian_:lucid-amd64.list
+FilterList: purge filter_http:__download.virtualbox.org_virtualbox_debian_:precise-amd64.list
 
-Name: filter_http:__download.virtualbox.org_virtualbox_debian_:lucid-i386
+Name: filter_http:__download.virtualbox.org_virtualbox_debian_:precise-i386
 Method: http://download.virtualbox.org/virtualbox/debian/
-Suite: lucid
+Suite: precise
 Components:  contrib>contrib
 Architectures: i386
-FilterList: purge filter_http:__download.virtualbox.org_virtualbox_debian_:lucid-i386.list
+FilterList: purge filter_http:__download.virtualbox.org_virtualbox_debian_:precise-i386.list
 
-Name: filter_http:__ppa.launchpad.net_bisigi_ppa_ubuntu_:lucid-amd64
-Method: http://ppa.launchpad.net/bisigi/ppa/ubuntu/
-Suite: lucid
+Name: filter_http:__ppa.launchpad.net_nilarimogard_webupd8_ubuntu_:precise-amd64
+Method: http://ppa.launchpad.net/nilarimogard/webupd8/ubuntu/
+Suite: precise
 Components:  main>contrib
 Architectures: amd64
-FilterList: purge filter_http:__ppa.launchpad.net_bisigi_ppa_ubuntu_:lucid-amd64.list
+FilterList: purge filter_http:__ppa.launchpad.net_nilarimogard_webupd8_ubuntu_:precise-amd64.list
 
-Name: filter_http:__ppa.launchpad.net_bisigi_ppa_ubuntu_:lucid-i386
-Method: http://ppa.launchpad.net/bisigi/ppa/ubuntu/
-Suite: lucid
+Name: filter_http:__ppa.launchpad.net_nilarimogard_webupd8_ubuntu_:precise-i386
+Method: http://ppa.launchpad.net/nilarimogard/webupd8/ubuntu/
+Suite: precise
 Components:  main>contrib
 Architectures: i386
-FilterList: purge filter_http:__ppa.launchpad.net_bisigi_ppa_ubuntu_:lucid-i386.list
+FilterList: purge filter_http:__ppa.launchpad.net_nilarimogard_webupd8_ubuntu_:precise-i386.list
 
-Name: filter_http:__ppa.launchpad.net_libreoffice_ppa_ubuntu_:lucid-amd64
-Method: http://ppa.launchpad.net/libreoffice/ppa/ubuntu/
-Suite: lucid
-Components:  main>contrib
+Name: filter_http:__ppa.launchpad.net_ravefinity-project_ppa_ubuntu_:precise-amd64
+Method: http://ppa.launchpad.net/ravefinity-project/ppa/ubuntu/
+Suite: precise
+Components: main>contrib
 Architectures: amd64
-FilterList: purge filter_http:__ppa.launchpad.net_libreoffice_ppa_ubuntu_:lucid-amd64.list
+FilterList: purge filter_http:__ppa.launchpad.net_ravefinity-project_ppa_ubuntu_:precise-amd64.list
 
-Name: filter_http:__ppa.launchpad.net_libreoffice_ppa_ubuntu_:lucid-i386
-Method: http://ppa.launchpad.net/libreoffice/ppa/ubuntu/
-Suite: lucid
-Components:  main>contrib
+Name: filter_http:__ppa.launchpad.net_ravefinity-project_ppa_ubuntu_:precise-i386
+Method: http://ppa.launchpad.net/ravefinity-project/ppa/ubuntu/
+Suite: precise
+Components: main>contrib
 Architectures: i386
-FilterList: purge filter_http:__ppa.launchpad.net_libreoffice_ppa_ubuntu_:lucid-i386.list
+FilterList: purge filter_http:__ppa.launchpad.net_ravefinity-project_ppa_ubuntu_:precise-i386.list
 
-Name: filter_http:__ppa.launchpad.net_mozillateam_firefox-stable_ubuntu_:lucid-amd64
-Method: http://ppa.launchpad.net/mozillateam/firefox-stable/ubuntu/
-Suite: lucid
-Components:  main>contrib
-Architectures: amd64
-FilterList: purge filter_http:__ppa.launchpad.net_mozillateam_firefox-stable_ubuntu_:lucid-amd64.list
-
-Name: filter_http:__ppa.launchpad.net_mozillateam_firefox-stable_ubuntu_:lucid-i386
-Method: http://ppa.launchpad.net/mozillateam/firefox-stable/ubuntu/
-Suite: lucid
-Components:  main>contrib
-Architectures: i386
-FilterList: purge filter_http:__ppa.launchpad.net_mozillateam_firefox-stable_ubuntu_:lucid-i386.list
-
-Name: filter_http:__ppa.launchpad.net_tiheum_equinox_ubuntu_:lucid-amd64
+Name: filter_http:__ppa.launchpad.net_tiheum_equinox_ubuntu_:precise-amd64
 Method: http://ppa.launchpad.net/tiheum/equinox/ubuntu/
-Suite: lucid
+Suite: precise
 Components:  main>contrib
 Architectures: amd64
-FilterList: purge filter_http:__ppa.launchpad.net_tiheum_equinox_ubuntu_:lucid-amd64.list
+FilterList: purge filter_http:__ppa.launchpad.net_tiheum_equinox_ubuntu_:precise-amd64.list
 
-Name: filter_http:__ppa.launchpad.net_tiheum_equinox_ubuntu_:lucid-i386
+Name: filter_http:__ppa.launchpad.net_tiheum_equinox_ubuntu_:precise-i386
 Method: http://ppa.launchpad.net/tiheum/equinox/ubuntu/
-Suite: lucid
+Suite: precise
 Components:  main>contrib
 Architectures: i386
-FilterList: purge filter_http:__ppa.launchpad.net_tiheum_equinox_ubuntu_:lucid-i386.list
+FilterList: purge filter_http:__ppa.launchpad.net_tiheum_equinox_ubuntu_:precise-i386.list
 
-Name: filter_http:__ppa.launchpad.net_ubuntu-wine_ppa_ubuntu_:lucid-amd64
-Method: http://ppa.launchpad.net/ubuntu-wine/ppa/ubuntu/
-Suite: lucid
+Name: filter_http:__ppa.launchpad.net_webupd8team_gthumb_ubuntu_:precise-amd64
+Method: http://ppa.launchpad.net/webupd8team/gthumb/ubuntu/
+Suite: precise
 Components:  main>contrib
 Architectures: amd64
-FilterList: purge filter_http:__ppa.launchpad.net_ubuntu-wine_ppa_ubuntu_:lucid-amd64.list
+FilterList: purge filter_http:__ppa.launchpad.net_webupd8team_gthumb_ubuntu_:precise-amd64.list
 
-Name: filter_http:__ppa.launchpad.net_ubuntu-wine_ppa_ubuntu_:lucid-i386
-Method: http://ppa.launchpad.net/ubuntu-wine/ppa/ubuntu/
-Suite: lucid
+Name: filter_http:__ppa.launchpad.net_webupd8team_gthumb_ubuntu_:precise-i386
+Method: http://ppa.launchpad.net/webupd8team/gthumb/ubuntu/
+Suite: precise
 Components:  main>contrib
 Architectures: i386
-FilterList: purge filter_http:__ppa.launchpad.net_ubuntu-wine_ppa_ubuntu_:lucid-i386.list
+FilterList: purge filter_http:__ppa.launchpad.net_webupd8team_gthumb_ubuntu_:precise-i386.list
 
-Name: filter_http:__ppa.launchpad.net_zentyal_2.2_ubuntu_:lucid-amd64
-Method: http://ppa.launchpad.net/zentyal/2.2/ubuntu/
-Suite: lucid
+Name: filter_http:__ppa.launchpad.net_webupd8team_java_ubuntu_:precise-amd64
+Method: http://ppa.launchpad.net/webupd8team/java/ubuntu/
+Suite: precise
 Components:  main>contrib
 Architectures: amd64
-FilterList: purge filter_http:__ppa.launchpad.net_zentyal_2.2_ubuntu_:lucid-amd64.list
+FilterList: purge filter_http:__ppa.launchpad.net_webupd8team_java_ubuntu_:precise-amd64.list
 
-Name: filter_http:__ppa.launchpad.net_zentyal_2.2_ubuntu_:lucid-i386
-Method: http://ppa.launchpad.net/zentyal/2.2/ubuntu/
-Suite: lucid
+Name: filter_http:__ppa.launchpad.net_webupd8team_java_ubuntu_:precise-i386
+Method: http://ppa.launchpad.net/webupd8team/java/ubuntu/
+Suite: precise
 Components:  main>contrib
 Architectures: i386
-FilterList: purge filter_http:__ppa.launchpad.net_zentyal_2.2_ubuntu_:lucid-i386.list
+FilterList: purge filter_http:__ppa.launchpad.net_webupd8team_java_ubuntu_:precise-i386.list
+
+Name: filter_http:__ppa.launchpad.net_xubuntu-dev_xfce-4.10_ubuntu_:precise-amd64
+Method: http://ppa.launchpad.net/xubuntu-dev/xfce-4.10/ubuntu/
+Suite: precise
+Components:  main>contrib
+Architectures: amd64
+FilterList: purge filter_http:__ppa.launchpad.net_xubuntu-dev_xfce-4.10_ubuntu_:precise-amd64.list
+
+Name: filter_http:__ppa.launchpad.net_xubuntu-dev_xfce-4.10_ubuntu_:precise-i386
+Method: http://ppa.launchpad.net/xubuntu-dev/xfce-4.10/ubuntu/
+Suite: precise
+Components:  main>contrib
+Architectures: i386
+FilterList: purge filter_http:__ppa.launchpad.net_xubuntu-dev_xfce-4.10_ubuntu_:precise-i386.list
+
+Name: filter_http:__ppa.launchpad.net_zentyal_2.3_ubuntu_:precise-amd64
+Method: http://ppa.launchpad.net/zentyal/2.3/ubuntu/
+Suite: precise
+Components:  main>contrib
+Architectures: amd64
+FilterList: purge filter_http:__ppa.launchpad.net_zentyal_2.3_ubuntu_:precise-amd64.list
+
+Name: filter_http:__ppa.launchpad.net_zentyal_2.3_ubuntu_:precise-i386
+Method: http://ppa.launchpad.net/zentyal/2.3/ubuntu/
+Suite: precise
+Components:  main>contrib
+Architectures: i386
+FilterList: purge filter_http:__ppa.launchpad.net_zentyal_2.3_ubuntu_:precise-i386.list
 
