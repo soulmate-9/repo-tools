@@ -1,0 +1,21 @@
+#!/bin/sh
+die(){
+	echo "$1"
+	exit 0
+}
+
+
+[ $(id -u) -eq 0 ] || die "You must be root, my friend"
+REMOTE_ARCHIVE="root@172.16.0.40:/var/www/archive/aurex"
+LOCAL_ARCHIVE="/srv/repo/aurex/dists /srv/repo/aurex/pool"
+if [ "$1" != "--no-interactive" ] ; then
+	echo "Interactive mode (use option --no-interactive to skip next question)"
+	echo "Type 'yes' to rsync pool data to $REMOTE_ARCHIVE"
+	read a
+	[ "$a" = "yes" ] || die "Update aborted"
+fi
+
+rsync -avx --delete $LOCAL_ARCHIVE $REMOTE_ARCHIVE || die "Update FAILED"
+echo "Remote archive SUCCESSFULLY UPDATED"
+exit 0
+
