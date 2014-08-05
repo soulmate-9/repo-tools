@@ -1,0 +1,15 @@
+#!/bin/sh
+for a in i386 amd64 ; do
+	echo "Checking pkg versions in tau for architecture $a"
+	PKG_LIST="$(reprepro -A $a list tau |cut -f2,3 -d " " --output-delimiter="=")"
+	for p in $PKG_LIST ; do
+		P_NAME="${p%%=*}"
+		P_VERSION="${p#*=}"
+		for STABLE_VERSION in $(reprepro -A $a list precise $P_NAME |cut -f3 -d " ") ; do
+			if [ "$P_VERSION" != "$STABLE_VERSION" ] ; then
+				echo "WARNING: ($a) $P_NAME tau -> $P_VERSION ; precise -> $STABLE_VERSION"
+			fi
+		done
+	done
+done
+		
