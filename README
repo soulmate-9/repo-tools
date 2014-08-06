@@ -250,3 +250,49 @@ HOOKDIR=${HOME}/.pbuilder/hooks/
  
 PKGNAME_LOGFILE_EXTENTION="_${ARCH}.build"
 
+begin a new distribution
+================
+add new distribution to store old tau to distributions, ie:
+
+
+Origin: aurex
+Label: aurex
+Suite: tau-precise
+Codename: tau-precise
+Architectures: i386 amd64 source
+Components: main contrib
+UDebComponents: main contrib
+Description: Old testing aurex (tau) repository. Use at your own risk
+Version: 12.04
+SignWith: C2A2C214
+Update: - tau2tauprecise
+
+
+add 'tau2tauprecise' to updates file:
+
+
+Name: tau2tauprecise
+Method: file:///srv/repo/aurex/
+Suite: tau
+Components: main
+Architectures: amd64 i386 source
+
+
+and run:
+reprepro -VV --noskipold --export=force update tau-precise
+
+when reprepro finishes , remove
+'Update: - tau2tauprecise'
+from distributions file
+and remove tau from distributions and run
+reprepro -VV --delete clearvanished
+
+in this way all references to packages in tau will be removed
+
+the last step is to fill distributions file with 'new tau', trusty, trusty-updates etc
+delete complete dists/tau directory 
+and run
+reprepro update tau
+reprepro update trusty
+....
+
