@@ -79,7 +79,7 @@ fi
 ARCH="$3"
 
 PBASEDIR="/var/cache/pbuilder"
-DIST=precise
+DIST=trusty
 PRESULTBASE="$PBASEDIR/result/"
 #PBUILDOPTS="-b"
 PBUILDOPTS="-B"

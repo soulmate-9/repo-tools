@@ -1,6 +1,6 @@
 #!/bin/sh
 echo "adding own repository"
-echo "deb file:///srv/repo/aurex/ precise main contrib" >> /etc/apt/sources.list
+echo "deb file:///srv/repo/aurex/ trusty main contrib" >> /etc/apt/sources.list
 
 echo "updating index"
 apt-get update
