@@ -142,6 +142,9 @@ NOTE: --debbuildopts:
 results in:
 /var/cache/pbuilder/result/
 
+NOTE: As a workaround for some problems with 'BINDMOUNTS' variable and nfs mounted dirs, the sources list in chroot uses now http://,
+      so apache must be installed in the build machine and configurede to access repo in http://localhost/aurex
+
 /etc/pbuilderrc
 ---------------
 # this is your configuration file for pbuilder.
