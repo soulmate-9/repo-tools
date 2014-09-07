@@ -3,5 +3,14 @@ echo "adding own repository"
 #echo "deb file:///srv/repo/aurex/ trusty main contrib" >> /etc/apt/sources.list
 echo "deb http://localhost/aurex/ trusty main contrib" >> /etc/apt/sources.list
 
+echo "adding restricted and multiverse"
+echo "deb http://ubuntu.mirrors.ovh.net/ftp.ubuntu.com/ubuntu/ trusty restricted multiverse" >> /etc/apt/sources.list
+
+echo "adding updates"
+echo "deb http://ubuntu.mirrors.ovh.net/ftp.ubuntu.com/ubuntu/ trusty-updates main restricted universe multiverse" >> /etc/apt/sources.list
+
+echo "adding security"
+echo "deb http://ubuntu.mirrors.ovh.net/ftp.ubuntu.com/ubuntu/ trusty-security main restricted universe multiverse" >> /etc/apt/sources.list
+
 echo "updating index"
 apt-get update
