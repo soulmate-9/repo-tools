@@ -1,0 +1,81 @@
+#!/bin/sh
+# start/stop multiple inoticoming instances from a simple script
+### BEGIN INIT INFO
+# Provides:          pool-incoming
+# Required-Start:    $local_fs $remote_fs $syslog
+# Required-Stop:     $local_fs $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start/stop apache2 web server
+# Description:       Start inoticoming for processing pool incoming dirs
+#  This script will start multiple inoticoming instances in order
+#  to process different incoming dirs
+### END INIT INFO
+
+# Variables
+# ---------
+
+# inoticoming logs and pids dirs
+INOTI_LOGS="/var/log/pool-incoming"
+INOTI_PIDS="/var/run/pool-incoming"
+
+# reprepro settings
+REPR_RULE="incoming"
+REPR_BASEDIRS="/srv/repo/aurex"
+
+do_start(){
+	# Override any value with /etc/defaults/pool-incoming
+	[ ! -r "/etc/defaults/pool-incoming" ] || . /etc/defaults/pool-incoming
+
+	# Create required dirs
+	mkdir -p "$INOTI_LOGS" "$INOTI_PIDS"
+
+	for d in $REPR_BASEDIRS ; do
+		# Create required dirs
+		mkdir -p "$INOTI_LOGS/$d" "$INOTI_PIDS/$d"
+
+		# launch an inoticoming instance for directory '$d'
+		# reprepro will use $REPR_RULE rule of the conf/incoming file
+
+		inoticoming --logfile "$INOTI_LOGS/$d/incoming.log" --pid-file "$INOTI_PIDS/$d/inoticoming.pid" "$d/incoming" --suffix ".changes" --stderr-to-log --stdout-to-log --chdir "$d" /usr/share/repo-tools/incoming-hook-script {} \;
+	
+	done
+}
+
+do_stop(){
+	# Override any value with /etc/defaults/pool-incoming
+	[ ! -r "/etc/defaults/pool-incoming" ] || . /etc/defaults/pool-incoming
+
+	for d in $REPR_BASEDIRS ; do
+		PIDFILE="$INOTI_PIDS/$d/inoticoming.pid"
+		if [ -r "$PIDFILE" ] ; then
+			kill -9 $(cat "$PIDFILE") || true
+			rm -f "$PIDFILE"
+			# remove any leading / in pathname
+			D="$(echo $d |sed -e "s%^/*%%")"
+			cd "$INOTI_PIDS" && rmdir -p --ignore-fail-on-non-empty "$D" || true
+
+		fi
+	done	
+}
+
+case "$1" in
+	start)
+		do_start()
+		;;
+	stop)
+		do_stop()
+		;;
+	restart)
+		do_stop()
+		do_start()
+		;;
+	*)
+		echo "Usage: $0 {start|stop|restart}" >&2
+		exit 1
+		;;
+esac
+
+exit 0
+
+
