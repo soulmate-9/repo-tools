@@ -5,9 +5,9 @@ for a in i386 amd64 ; do
 	for p in $PKG_LIST ; do
 		P_NAME="${p%%=*}"
 		P_VERSION="${p#*=}"
-		for STABLE_VERSION in $(reprepro -A $a list trusty $P_NAME |cut -f3 -d " ") ; do
+		for STABLE_VERSION in $(reprepro -A $a list xenial $P_NAME |cut -f3 -d " ") ; do
 			if [ "$P_VERSION" != "$STABLE_VERSION" ] ; then
-				echo "WARNING: ($a) $P_NAME tau -> $P_VERSION ; trusty -> $STABLE_VERSION"
+				echo "WARNING: ($a) $P_NAME tau -> $P_VERSION ; xenial -> $STABLE_VERSION"
 			fi
 		done
 	done

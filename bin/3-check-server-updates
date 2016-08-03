@@ -7,13 +7,13 @@ REG_EXP="^\(add\|update\)[[:blank:]]\+'\([^']\+\)'[^']\+'\([^']\+\)'.*$"
 TIME_STAMP="$(date "+%Y%m%d-%H%M%S")"
 echo "Package list"
 echo "====================================================="
-reprepro --noskipold dumpupdate trusty-server  2>/dev/null |sed -ne "/$REG_EXP/p" |sort -u
+reprepro --noskipold dumpupdate xenial-server  2>/dev/null |sed -ne "/$REG_EXP/p" |sort -u
 cat <<EOF
 =====================================================
 
 Run command:
 
-reprepro -VV --noskipold --export=force update trusty-server
+reprepro -VV --noskipold --export=force update xenial-server
 
 to update 'aurex server distribution' from 'the rest of the world'.
 EOF
