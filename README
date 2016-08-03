@@ -125,16 +125,16 @@ reprepro -VV --noskipold --export=force update
 cowbuilder
 ==========
 create chroots:
-	sudo cowbuilder --create --distribution precise --components "main universe" --basepath /var/cache/pbuilder/precise-amd64.cow
-	sudo cowbuilder --create --distribution precise --components "main universe" --architecture i386 --basepath /var/cache/pbuilder/precise-i386.cow
+	sudo cowbuilder --create --distribution xenial --components "main universe" --basepath /var/cache/pbuilder/xenial-amd64.cow
+	sudo cowbuilder --create --distribution xenial --components "main universe" --architecture i386 --basepath /var/cache/pbuilder/xenial-i386.cow
 
 update:
-sudo cowbuilder --update --basepath /var/cache/pbuilder/precise-i386.cow
-sudo cowbuilder --update --basepath /var/cache/pbuilder/precise-amd64.cow
+sudo cowbuilder --update --basepath /var/cache/pbuilder/xenial-i386.cow
+sudo cowbuilder --update --basepath /var/cache/pbuilder/xenial-amd64.cow
 
 compile:
 
-sudo DIST=lucid ARCH=i386 cowbuilder --debbuildopts "-b" --build ../hello_2.4-3.dsc --basepath /var/cache/pbuilder/lucid-i386.cow
+sudo DIST=xenial ARCH=i386 cowbuilder --debbuildopts "-b" --build ../hello_2.4-3.dsc --basepath /var/cache/pbuilder/xenial-i386.cow
 
 NOTE: --debbuildopts:
 	"-b" binary only
