@@ -6,7 +6,7 @@
 # Required-Stop:     $local_fs $remote_fs $syslog
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Short-Description: Start/stop apache2 web server
+# Short-Description: Start/stop multiple inoticoming instances
 # Description:       Start inoticoming for processing pool incoming dirs
 #  This script will start multiple inoticoming instances in order
 #  to process different incoming dirs
@@ -61,14 +61,14 @@ do_stop(){
 
 case "$1" in
 	start)
-		do_start()
+		do_start
 		;;
 	stop)
-		do_stop()
+		do_stop
 		;;
 	restart)
-		do_stop()
-		do_start()
+		do_stop
+		do_start
 		;;
 	*)
 		echo "Usage: $0 {start|stop|restart}" >&2
