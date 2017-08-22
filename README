@@ -1,4 +1,4 @@
-custom repository howto (The aurex way)
+custom repository howto (The soulmate way)
 =======================================
 packages: reprepro inoticoming gnupg apache2
 
@@ -6,33 +6,37 @@ gpg keys
 ========
 We need to generate signing key as root, so, the recommended way is:
 	sudo su -
-	gpg --gen-key
+	gpg --full-gen-key
  -> option (2) DSA y Elgamal
- -> size: 1024
+ -> size: 2048
  -> option 0 = (no caducity)
- -> Name: aurex linux repository
- -> email: aurex.linux@gmail.com
+ -> Name: soulmate linux repository
+ -> email: soulmate.linux@gmail.com
  -> Comment: <empty>
  -> pass phrase: <empty>
 
 execute:
 	gpg --list-keys
 
-an then look for a line similar to:
+an then look for an output similar to:
 	...
-	pub  1024D/3D3CBB05 2011-09-02
+pub   dsa2048 2017-08-22 [SC]
+      AA00BB11CC22DD33EE44FF55AA66BB77CC88DD99
+uid           [ultimate] soulmate linux <soulmate.linux@gmail.com>
+        ...
 
-(the part after 1024D/ is the required reprepro configuration key)
+In this example, the required reprepro configuration key is the second line, that is,
+the value just under the line beginning with pub ...: AA00BB11CC22DD33EE44FF55AA66BB77CC88DD99
 
 The public key should be exported (and published) in an ASCII armored file.
 To export the key, run:
 
-gpg --export --armor 3D3CBB05 > repo-key.asc
+gpg --export --armor AA00BB11CC22DD33EE44FF55AA66BB77CC88DD99 > repo-key.asc
 
 reprepro
 ========
 create repo dirs, in our example:
-	mkdir -p /srv/repo/aurex/conf /srv/repo/aurex/incoming /srv/repo/aurex/incomingtmp
+	mkdir -p /srv/repo/soulmate/conf /srv/repo/soulmate/incoming /srv/repo/soulmate/incomingtmp
 To easy allow local uploads, a quick an dirty trick is to create a system group ('uploaders') and change ownership and permissions in the incoming dir. In our example:
 	addgroup --system uploaders
 	chgrp uploaders /srv/repo/aurex/incoming
