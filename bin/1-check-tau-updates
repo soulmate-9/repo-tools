@@ -5,11 +5,11 @@ REG_EXP="^\(add\|update\)[[:blank:]]\+'\([^']\+\)'[^']\+'\([^']\+\)'.*$"
 #TODO: interactive check
 #TODO: interactive check
 TIME_STAMP="$(date "+%Y%m%d-%H%M%S")"
-LIST_FILE="conf/tau2trusty.list"
+LIST_FILE="conf/tau2xenial.list"
 [ ! -r "$LIST_FILE" ] || mv "$LIST_FILE" "$LIST_FILE.$TIME_STAMP"
 echo "Package list"
 echo "====================================================="
-reprepro --noskipold dumppull trusty-proposed |sed -ne "/$REG_EXP/{s%$REG_EXP%\2	install%;p}" |sort -u |tee "$LIST_FILE"
+reprepro --noskipold dumppull xenial-proposed |sed -ne "/$REG_EXP/{s%$REG_EXP%\2	install%;p}" |sort -u |tee "$LIST_FILE"
 
 cat <<EOF
 =====================================================
@@ -17,7 +17,7 @@ cat <<EOF
 Filter list: $LIST_FILE updated. Old filter saved as: $LIST_FILE.$TIME_STAMP
 Run command:
 
-reprepro -VV --noskipold --export=force  pull trusty-proposed
+reprepro -VV --noskipold --export=force  pull xenial-proposed
 
 to update 'aurex proposed' from 'tau'.
 EOF
