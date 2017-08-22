@@ -1,0 +1,16 @@
+#!/bin/sh
+echo "adding own repository"
+#echo "deb file:///srv/repo/aurex/ xenial main contrib" >> /etc/apt/sources.list
+echo "deb http://localhost/soulmate/ stretch main contrib" >> /etc/apt/sources.list
+
+#echo "adding contrib and non-free"
+#echo "deb http://debian.mirrors.ovh.net/debian/ stretch contrib non-free" >> /etc/apt/sources.list
+
+echo "adding updates"
+echo "deb http://debian.mirrors.ovh.net/debian/ stretch-updates main contrib non-free"  >> /etc/apt/sources.list
+
+echo "adding security"
+echo "deb http://security.debian.org/ stretch/updates main contrib non-free"  >> /etc/apt/sources.list
+
+echo "updating index"
+apt-get update

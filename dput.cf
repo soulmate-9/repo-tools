@@ -1,9 +1,9 @@
 [DEFAULT]
 default_host_main = notspecified
 
-[tau]
+[gourd]
 fqdn = localhost
 method = local
-incoming = /srv/repo/aurex/incoming
+incoming = /srv/repo/soulmate/incoming
 allow_unsigned_uploads = 1
 run_dinstall = 0

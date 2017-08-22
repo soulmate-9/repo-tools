@@ -21,7 +21,7 @@ INOTI_PIDS="/var/run/pool-incoming"
 
 # reprepro settings
 REPR_RULE="incoming"
-REPR_BASEDIRS="/srv/repo/aurex"
+REPR_BASEDIRS="/srv/repo/soulmate"
 
 do_start(){
 	# Override any value with /etc/defaults/pool-incoming
@@ -31,13 +31,18 @@ do_start(){
 	mkdir -p "$INOTI_LOGS" "$INOTI_PIDS"
 
 	for d in $REPR_BASEDIRS ; do
-		# Create required dirs
-		mkdir -p "$INOTI_LOGS/$d" "$INOTI_PIDS/$d"
+		# test target dir
+		if [ -d "$d/incoming" ] ; then
+			# Create required dirs
+			mkdir -p "$INOTI_LOGS/$d" "$INOTI_PIDS/$d"
 
-		# launch an inoticoming instance for directory '$d'
-		# reprepro will use $REPR_RULE rule of the conf/incoming file
+			# launch an inoticoming instance for directory '$d'
+			# reprepro will use $REPR_RULE rule of the conf/incoming file
 
-		inoticoming --logfile "$INOTI_LOGS/$d/incoming.log" --pid-file "$INOTI_PIDS/$d/inoticoming.pid" "$d/incoming" --suffix ".changes" --stderr-to-log --stdout-to-log --chdir "$d" /usr/share/repo-tools/incoming-hook-script {} \;
+			inoticoming --logfile "$INOTI_LOGS/$d/incoming.log" --pid-file "$INOTI_PIDS/$d/inoticoming.pid" "$d/incoming" --suffix ".changes" --stderr-to-log --stdout-to-log --chdir "$d" /usr/share/repo-tools/incoming-hook-script {} \;
+		else 
+			echo "Directory $d/incoming does not exist. Skipping"
+		fi
 	
 	done
 }

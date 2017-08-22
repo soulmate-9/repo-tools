@@ -79,13 +79,13 @@ fi
 ARCH="$3"
 
 PBASEDIR="/var/cache/pbuilder"
-DIST=xenial
+DIST="stretch"
 PRESULTBASE="$PBASEDIR/result/"
 #PBUILDOPTS="-b"
 PBUILDOPTS="-B"
-PBUILDCONF="--configfile /var/cache/pbuilder/pbuilder-aurex.config/rc-aurex"
-RBASEDIR="/srv/repo/aurex/"
-RDIST="tau"
+PBUILDCONF="--configfile /var/cache/pbuilder/pbuilder-soulmate.config/rc-soulmate"
+RBASEDIR="/srv/repo/soulmate/"
+RDIST="gourd"
 HOME=/root
 export DIST ARCH HOME
 PBASEPATH="$PBASEDIR/$DIST-$ARCH.cow"

@@ -1,0 +1,12 @@
+[Unit]
+Description=Process incoming packages using inoticoming 
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/sbin/pool-incoming start
+ExecStop=/usr/sbin/pool-incoming stop
+ExecReload=/usr/sbin/pool-incoming restart
+
+[Install]
+WantedBy=multi-user.target

@@ -7,7 +7,7 @@ Standards-Version: 3.8.4
 
 Package: repo-tools
 Architecture: all
-Depends: ${misc:Depends}, reprepro, inoticoming, cowbuilder, upstart
+Depends: ${misc:Depends}, reprepro, inoticoming, cowbuilder, systemd
 Description: Custom debian repository tools
  Scripts to setup an automatic custom debian repository using reprepro,
  inoticoming and cowbuilder for a rudimentary autobuilder

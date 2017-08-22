@@ -1,2 +1,0 @@
-HOOKDIR="/var/cache/pbuilder/pbuilder-aurex.config/rc-aurex-hooks"
-BINDMOUNTS="/srv/repo/aurex $HOOKDIR"

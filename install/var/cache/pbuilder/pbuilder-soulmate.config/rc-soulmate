@@ -1,0 +1,2 @@
+HOOKDIR="/var/cache/pbuilder/pbuilder-soulmate.config/rc-soulmate-hooks"
+BINDMOUNTS="/srv/repo/soulmate $HOOKDIR"

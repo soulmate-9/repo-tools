@@ -129,16 +129,16 @@ reprepro -VV --noskipold --export=force update
 cowbuilder
 ==========
 create chroots:
-	sudo cowbuilder --create --distribution xenial --components "main universe" --basepath /var/cache/pbuilder/xenial-amd64.cow
-	sudo cowbuilder --create --distribution xenial --components "main universe" --architecture i386 --basepath /var/cache/pbuilder/xenial-i386.cow
+      sudo cowbuilder --create --distribution stretch --components "main contrib non-free" --basepath /var/cache/pbuilder/stretch-amd64.cow
+      sudo cowbuilder --create --distribution stretch --components "main contrib non-free" --architecture i386 --basepath /var/cache/pbuilder/stretch-i386.cow
 
 update:
-sudo cowbuilder --update --basepath /var/cache/pbuilder/xenial-i386.cow
-sudo cowbuilder --update --basepath /var/cache/pbuilder/xenial-amd64.cow
+sudo cowbuilder --update --basepath /var/cache/pbuilder/stretch-i386.cow
+sudo cowbuilder --update --basepath /var/cache/pbuilder/stretch-amd64.cow
 
 compile:
 
-sudo DIST=xenial ARCH=i386 cowbuilder --debbuildopts "-b" --build ../hello_2.4-3.dsc --basepath /var/cache/pbuilder/xenial-i386.cow
+sudo DIST=stretch ARCH=i386 cowbuilder --debbuildopts "-b" --build ../hello_2.4-3.dsc --basepath /var/cache/pbuilder/stretch-i386.cow
 
 NOTE: --debbuildopts:
 	"-b" binary only
@@ -178,6 +178,15 @@ pristine-tar = True
 ...
 export-dir = ../build-area/
 ...
+
+
+pool-incoming systemd service
+=============================
+
+copy required files from install dir to system, an run:
+sudo systemctl enable pool-incoming.service
+sudo systemctl start pool-incoming.service
+
 
 
 UNUSED ... 
