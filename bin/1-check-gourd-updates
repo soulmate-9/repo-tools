@@ -5,11 +5,19 @@ REG_EXP="^\(add\|update\)[[:blank:]]\+'\([^']\+\)'[^']\+'\([^']\+\)'.*$"
 #TODO: interactive check
 #TODO: interactive check
 TIME_STAMP="$(date "+%Y%m%d-%H%M%S")"
-LIST_FILE="conf/tau2xenial.list"
+LIST_DIR="conf/"
+LIST_BASENAME="gourd2stretch.list"
+LIST_FILE="${LIST_DIR}${LIST_BASENAME}"
 [ ! -r "$LIST_FILE" ] || mv "$LIST_FILE" "$LIST_FILE.$TIME_STAMP"
 echo "Package list"
 echo "====================================================="
-reprepro --noskipold dumppull xenial-proposed |sed -ne "/$REG_EXP/{s%$REG_EXP%\2	install%;p}" |sort -u |tee "$LIST_FILE"
+reprepro --noskipold dumppull stretch-proposed |sed -ne "/$REG_EXP/{s%$REG_EXP%\2	install%;p}" |sort -u |tee "$LIST_FILE"
+
+#preserve only the last 10 backup files
+REMOVE_LIST="$(find $LIST_DIR -name "$LIST_BASENAME.*" 2>/dev/null |sort |head -n -9)"
+for f in $REMOVE_LIST; do
+	rm $f
+done
 
 cat <<EOF
 =====================================================
@@ -17,9 +25,9 @@ cat <<EOF
 Filter list: $LIST_FILE updated. Old filter saved as: $LIST_FILE.$TIME_STAMP
 Run command:
 
-reprepro -VV --noskipold --export=force  pull xenial-proposed
+reprepro -VV --noskipold --export=force  pull stretch-proposed
 
-to update 'aurex proposed' from 'tau'.
+to update 'soulmate proposed' from 'gourd'.
 EOF
 exit 0
 

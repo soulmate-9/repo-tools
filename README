@@ -312,3 +312,5 @@ reprepro update tau
 reprepro update trusty
 ....
 
+(Note: first time is better to use reprepro -VV --noskipold --export=force update gourd | stretch-proposed | stretch | stretch-server)
+

@@ -7,15 +7,15 @@ REG_EXP="^\(add\|update\)[[:blank:]]\+'\([^']\+\)'[^']\+'\([^']\+\)'.*$"
 TIME_STAMP="$(date "+%Y%m%d-%H%M%S")"
 echo "Package list"
 echo "====================================================="
-reprepro --noskipold dumpupdate xenial 2>/dev/null |sed -ne "/$REG_EXP/p" |sort -u
+reprepro --noskipold dumpupdate stretch 2>/dev/null |sed -ne "/$REG_EXP/p" |sort -u
 cat <<EOF
 =====================================================
 
 Run command:
 
-reprepro -VV --noskipold --export=force update xenial
+reprepro -VV --noskipold --export=force update stretch
 
-to update 'aurex' from 'the rest of the world'.
+to update 'soulmate' from 'the rest of the world'.
 EOF
 exit 0
 
